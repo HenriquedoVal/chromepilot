@@ -1,0 +1,4 @@
+dist
+setup.py
+chromepilot.egg-info
+__pycache__
