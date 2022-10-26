@@ -19,7 +19,7 @@ positional arguments:
   
     search    Searches for installs of Google Chrome locally.
     check     Checks the version of Google Chrome and chromedrivers.
-    upgrade   Download newer versions of chromedriver online.
+    upgrade   Download newer versions of chromedriver. 'upgrade -c' cleans after install.
     clean     Searches for outdated chromedrivers locally.
 
 options:

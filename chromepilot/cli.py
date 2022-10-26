@@ -21,10 +21,18 @@ def main():
         'check',
         help='Checks the version of Google Chrome and chromedrivers.'
     )
-    subparsers.add_parser(
+
+    upgrade = subparsers.add_parser(
         'upgrade',
-        help='Download newer versions of chromedriver online.'
+        help=("Download newer versions of chromedriver. "
+              "'upgrade -c' cleans after install.")
     )
+    upgrade.add_argument(
+        '-c',
+        const=1,
+        action='store_const'
+    )
+
     subparsers.add_parser(
         'clean',
         help='Searches for outdated chromedrivers locally.'
@@ -74,8 +82,11 @@ def main():
             answer = input('Install latest chromedriver? [y/N]: ')
             if answer.lower() in ('y', 'yes'):
                 print(api.download_newer_version())
+                if args.c is not None:
+                    local.remove_outdated()
+                    print('Cleaned older versions.')
         else:
-            print('Everything is up to date')
+            print('Everything is up to date.')
 
     elif args.command == 'clean':
         chromedrivers = local.get_installed_chromedrivers()
@@ -84,6 +95,7 @@ def main():
             answer = input('Delete outdated? [y/N]: ')
             if answer.lower() in ('y', 'yes'):
                 local.remove_outdated()
+                print('Cleaned older versions.')
         else:
             print('Everything clean.')
 
