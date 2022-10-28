@@ -36,13 +36,19 @@ def main():
         'clean',
         help='Searches for outdated chromedrivers locally.'
     )
+
+    subparsers.add_parser(
+        'write',
+        help='Writes "pilot.toml" template on current directory'
+    )
+
     args = parser.parse_args()
 
     if args.command == 'search':
         search = local.search_chrome_installed()
         chromes = len(search)
         s = 's' if chromes > 1 else ''
-        print(f'{chromes}{s} could be found.')
+        print(f'{chromes} install{s} could be found.')
         if chromes:
             print('Version:')
         for version in search:
@@ -97,6 +103,12 @@ def main():
                 print('Cleaned older versions.')
         else:
             print('Everything clean.')
+
+    elif args.command == 'write':
+        import shutil
+        from pathlib import Path
+
+        shutil.copy(Path(local.__file__).parent / 'pilot.toml', '.')
 
     elif args.command is None:
         parser.print_help()
