@@ -2,3 +2,4 @@ dist
 setup.py
 chromepilot.egg-info
 __pycache__
+pyenv

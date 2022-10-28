@@ -16,7 +16,6 @@ def main():
         'search',
         help='Searches for installs of Google Chrome locally.'
     )
-    # search.add_argument...
     subparsers.add_parser(
         'check',
         help='Checks the version of Google Chrome and chromedrivers.'
