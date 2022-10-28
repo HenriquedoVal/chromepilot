@@ -41,5 +41,4 @@ driver = short.driver()  # Easy access to pre-configured driver
 ~~~
 
 TODO:
-- parse user configs to create webdriver
-- parse user configs to expose shortcuts
+- Implement CLI create template
