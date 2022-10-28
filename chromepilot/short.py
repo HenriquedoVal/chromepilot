@@ -62,9 +62,12 @@ def parse_toml(path):
 
 
 def driver(use_toml: bool = True):
+    import os
+
     from selenium import webdriver
     from selenium.webdriver.chrome.service import Service
 
+    from .__init__ import INSTALL_PATH
     from .local import get_installed_chromedrivers
     from .utils import get_newer_version
 
