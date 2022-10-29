@@ -106,9 +106,13 @@ def main():
 
     elif args.command == 'write':
         import shutil
+        import os
         from pathlib import Path
 
-        shutil.copy(Path(local.__file__).parent / 'pilot.toml', '.')
+        if not os.path.exists('pilot.toml'):
+            shutil.copy(Path(local.__file__).parent / 'pilot.toml', '.')
+        else:
+            print("There's already a \"pilot.toml\" in current directory.")
 
     elif args.command is None:
         parser.print_help()

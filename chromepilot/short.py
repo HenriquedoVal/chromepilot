@@ -12,19 +12,19 @@ HOME = pathlib.Path(INSTALL_PATH).parent
 
 def import_as(x: dict[str, str]) -> None:
     for i, j in x.items():
-        exec('import selenium.%s as %s' % (i, j))
+        exec('import %s as %s' % (i, j))
         exec('globals().update({"%s": %s})' % (j, j))
 
 
 def from_import(x: dict[str, str]) -> None:
     for i, j in x.items():
-        exec('from selenium.%s import %s' % (i, j))
+        exec('from %s import %s' % (i, j))
         exec('globals().update({"%s": %s})' % (j, j))
 
 
 def from_import_as(x: dict[str, list[str, str]]):
     for i, j in x.items():
-        exec('from selenium.%s import %s as %s' % (i, j[0], j[1]))
+        exec('from %s import %s as %s' % (i, j[0], j[1]))
         exec('globals().update({"%s": %s})' % (j[1], j[1]))
 
 

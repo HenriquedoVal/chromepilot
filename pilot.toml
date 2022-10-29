@@ -36,20 +36,18 @@ value = 2
 
 
 #
-# Selenium shortcuts
+# Shortcuts
 #
 
-
-# package name must be ignored
 [ import.as ]
-#'webdriver' = 'suchdriver'
+#'selenium.webdriver' = 'suchdriver'
 
 
 [ from.import ]
-'common.exceptions' = 'WebDriverException'
-'webdriver.common.by' = 'By'
-'webdriver.common.keys' = 'Keys'
+'selenium.common.exceptions' = 'WebDriverException'
+'selenium.webdriver.common.by' = 'By'
+'selenium.webdriver.common.keys' = 'Keys'
 
 
 [ from.import.as ]
-#'webdriver.common.by' = ['By', 'other']
+#'selenium.webdriver.common.by' = ['By', 'other']

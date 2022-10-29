@@ -1,5 +1,5 @@
 # Chromepilot
-### Chromedriver download manager and shortcuts for Selenium.
+### Chromedriver download manager and imports shortcuts
 
 Description:  
 Download, unzip in memory and manages chromedrivers.
@@ -70,6 +70,6 @@ True
 >>> driver = short.driver(use_toml=False)  # Don't use toml
 ~~~
 
-p.s: There's no dependencies for the CLI.
+p.s: There's no dependencies for the CLI usage.
      If your Python version is below 3.11 you will need the `tomlkit` package to use `chromepilot.short`.
-     Selenium is an obvious dependency for the same import as well.
+     Selenium is a dependency if you want `short.driver()`
