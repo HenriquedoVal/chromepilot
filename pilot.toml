@@ -14,11 +14,12 @@ service_args = []
 # webdriver.ChromeOptions().add_argument(...)
 [ add_argument ]
 
-disable-extensions = true
-auto-open-devtools-for-tabs = true
+disable-extensions = false
+auto-open-devtools-for-tabs = false
 start-maximized = false
 disable-windows10-custom-titlebar = false
-incognito = true
+incognito = false
+# list any other here
 
 
 # webdriver.ChromeOptions().add_experimental_option(...)
@@ -41,12 +42,13 @@ value = 2
 
 # package name must be ignored
 [ import.as ]
-'webdriver.common.by' = 'By'
-'webdriver.common.keys' = 'Keys'
+#'webdriver' = 'suchdriver'
 
 
 [ from.import ]
 'common.exceptions' = 'WebDriverException'
+'webdriver.common.by' = 'By'
+'webdriver.common.keys' = 'Keys'
 
 
 [ from.import.as ]
