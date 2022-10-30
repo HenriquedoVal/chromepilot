@@ -5,7 +5,6 @@ from io import BytesIO
 from urllib.request import urlopen
 
 from .__init__ import INSTALL_PATH
-from . import local
 
 
 URL = 'https://chromedriver.storage.googleapis.com/'
@@ -21,8 +20,6 @@ def get_newer_version_info() -> str:
 def download_newer_version() -> str:
 
     version = get_newer_version_info()
-    if version in local.get_installed_chromedrivers():
-        return 'Latest chromedriver is installed.'
 
     plat = sys.platform
     if plat == 'linux':
