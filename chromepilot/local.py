@@ -46,7 +46,8 @@ def _search_chrome_windows() -> list:
 def _search_chrome_linux() -> list:
     import shutil
 
-    if (bin := shutil.which('google-chrome')) is not None:
+    bin = shutil.which('google-chrome')
+    if bin is not None:
         res = os.popen(f'{bin} --version').read()
         return re.findall('[0-9]+.0.[0-9]+.[0-9]+', res)
 
