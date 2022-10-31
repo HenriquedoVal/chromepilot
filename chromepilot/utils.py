@@ -36,7 +36,7 @@ def check():
     )
 
 
-def upgrade():
+def upgrade(quiet: bool = False):
     if upgrade_available():
         print('A new chromedriver is available online.',
               'Consider upgrading Google Chrome before '
@@ -47,6 +47,9 @@ def upgrade():
             print(api.download_newer_version())
     else:
         print('Everything is up to date.')
+
+    if quiet:
+        clean(True)
 
 
 def upgrade_available():
