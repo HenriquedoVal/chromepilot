@@ -14,14 +14,14 @@ Easily integrates with Selenium webdriver.
 ~~~
 usage: chromepilot [-h]  ...
 
-Chromedriver download manager and shorcuts for Selenium.
+Chromedriver download manager and imports shortcuts.
 
 positional arguments:
   
     search    Searches for installs of Google Chrome locally.
     check     Checks the version of Google Chrome and chromedrivers.
     upgrade   Download newer versions of chromedriver. 'upgrade -c' cleans after install.
-    clean     Searches for outdated chromedrivers locally.
+    clear     Searches for outdated chromedrivers locally.
     write     Writes "pilot.toml" template on current directory
 
 options:
@@ -44,10 +44,10 @@ driver = short.driver()  # Easy access to pre-configured driver
 ~~~
 
 The _pilot.toml_ is a file where you define the config for your driver and
-the shortcuts for Selenium (your most used imports).  
+the imports shortcuts (your most used imports or those big, hard to remember Selenium imports).  
   
 When you import `chromepilot.short` it will search for a 'global' _pilot.toml_  
-in `~/.cache/chromepilot` in linux and `%LOCALAPPDATA%\chromepilot` in Windows.  
+in `~/.cache/chromepilot` in Linux and `%LOCALAPPDATA%\chromepilot` in Windows.  
 This file will be readden wherever you import `chromepilot.short`.  
   
 The settings for the global _pilot.toml_ will be overwritten by a 'local' one,  
