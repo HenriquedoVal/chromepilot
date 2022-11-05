@@ -49,7 +49,7 @@ def upgrade(quiet: bool = False):
         print('Everything is up to date.')
 
     if quiet:
-        clean(True)
+        clear(True)
 
 
 def upgrade_available():
@@ -62,7 +62,7 @@ def upgrade_available():
     )
 
 
-def clean(quiet: bool = False):
+def clear(quiet: bool = False):
     if quiet:
         return local.remove_outdated()
     chromedrivers = local.get_installed_chromedrivers()

@@ -6,7 +6,7 @@ from . import utils
 def main():
     parser = argparse.ArgumentParser(
         prog='chromepilot',
-        description='Chromedriver download manager and shorcuts for Selenium.',
+        description='Chromedriver download manager and imports shortcuts.',
     )
 
     subparsers = parser.add_subparsers(dest='command', metavar='')
@@ -31,7 +31,7 @@ def main():
     )
 
     subparsers.add_parser(
-        'clean',
+        'clear',
         help='Searches for outdated chromedrivers locally.'
     )
 
@@ -46,7 +46,7 @@ def main():
         'search': utils.search,
         'check': utils.check,
         'upgrade': utils.upgrade,
-        'clean': utils.clean,
+        'clear': utils.clear,
         'write': utils.write
     }
 

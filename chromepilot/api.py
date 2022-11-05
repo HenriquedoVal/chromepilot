@@ -32,7 +32,8 @@ def download_newer_version() -> str:
 
     bio = BytesIO(file.read())
     zip_handler = zipfile.ZipFile(bio)
-    if (err := zip_handler.testzip()) is None:
+    err = zip_handler.testzip()
+    if err is None:
 
         download_path = os.path.join(INSTALL_PATH, version) + os.path.sep
         os.mkdir(download_path)

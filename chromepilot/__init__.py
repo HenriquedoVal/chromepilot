@@ -3,7 +3,7 @@ import os
 
 
 if sys.platform == 'linux':
-    path = '~/.cache/chromepilot/bin/'
+    path = os.path.expanduser('~/.cache/chromepilot/bin/')
 
 elif sys.platform == 'win32':
     path = os.environ['LOCALAPPDATA'] + '\\chromepilot\\bin\\'
