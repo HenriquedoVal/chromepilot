@@ -50,6 +50,8 @@ def _search_chrome_linux() -> list:
     if bin is not None:
         res = os.popen(f'{bin} --version').read()
         return re.findall('[0-9]+.0.[0-9]+.[0-9]+', res)
+    else:
+        return []
 
 
 def search_chrome_installed() -> list:
@@ -70,11 +72,15 @@ def remove_outdated() -> None:
     newer = get_newer_version(chromedrivers)
     chromedrivers.remove(newer)
 
+    chromedriver = 'chromedriver.exe'
+    if sys.platform == 'linux':
+        chromedriver = 'chromedriver'
+
     for directory in chromedrivers:
         os.remove(os.path.join(
             INSTALL_PATH,
             directory,
-            'chromedriver.exe'
+            chromedriver
         ))
         os.rmdir(os.path.join(
             INSTALL_PATH,

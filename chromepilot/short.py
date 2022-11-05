@@ -63,6 +63,7 @@ def parse_toml(path):
 
 def driver(use_toml: bool = True):
     import os
+    import sys
 
     from selenium import webdriver
     from selenium.webdriver.chrome.service import Service
@@ -76,8 +77,12 @@ def driver(use_toml: bool = True):
         return
     newer_chromedriver = get_newer_version(chromedrivers)
 
+    chromedriver = 'chromedriver.exe'
+    if sys.platform == 'linux':
+        chromedriver = 'chromedriver'
+
     path = os.path.join(INSTALL_PATH, newer_chromedriver)
-    path += os.path.sep + 'chromedriver.exe'
+    path += os.path.sep + chromedriver
 
     if use_toml:
         global parsed_options

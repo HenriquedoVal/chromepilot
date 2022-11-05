@@ -21,9 +21,12 @@ def download_newer_version() -> str:
 
     version = get_newer_version_info()
 
+    chromedriver = 'chromedriver.exe'
+
     plat = sys.platform
     if plat == 'linux':
         plat += '64'
+        chromedriver = 'chromedriver'
 
     version += '/'
     file = urlopen(
@@ -38,9 +41,9 @@ def download_newer_version() -> str:
         download_path = os.path.join(INSTALL_PATH, version) + os.path.sep
         os.mkdir(download_path)
 
-        driver = zip_handler.open('chromedriver.exe')
+        driver = zip_handler.open(chromedriver)
         content = driver.read()
-        with open(download_path + 'chromedriver.exe', 'wb') as out:
+        with open(download_path + chromedriver, 'wb') as out:
             out.write(content)
 
         return "Download was successful"
